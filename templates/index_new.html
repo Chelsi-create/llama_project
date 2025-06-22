@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llama AI Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="container">
+            <header>
+                <h1>Craft an AI Assistant</h1>
+                <h2>in Minutes!</h2>
+                <p class="subtitle">Train Your Custom Llama Model for Text and Image Classification</p>
+            </header>
+
+            <div class="cta-buttons">
+                <button class="button-primary gradient-button" onclick="startDemo()">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="about-section">
+                <div class="about-content">
+                    <h3>About Our AI Assistant</h3>
+                    <p>
+                        Our platform empowers you to build powerful AI assistants with ease.
+                        Whether you're classifying text or analyzing images, our intuitive interface
+                        and cutting-edge Llama models provide the tools you need to succeed.
+                        Start creating today and unlock the potential of multimodal AI.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div style="background: linear-gradient(45deg, #58a6ff, #9b59b6); border-radius: 12px; width: 500px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.2rem;">
+                        AI Assistant Illustration
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-button active" data-tab="text">Text Classification</button>
+                <button class="tab-button" data-tab="image">Image Classification</button>
+            </div>
+
+            <!-- Text Classification Section -->
+            <div class="tab-content active" id="text-section">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="tabs-nested">
+                            <button class="tab-button-nested active" data-tab="text-training">Training</button>
+                            <button class="tab-button-nested" data-tab="text-few-shot">Few-Shot Learning</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="tab-content-nested active" id="text-training-section">
+                            <div class="upload-section">
+                                <label for="fileInput" class="upload-label">
+                                    <span class="upload-icon">📤</span>
+                                    <span>Upload Training Data (JSON)</span>
+                                    <input type="file" id="fileInput" accept=".json,.txt" class="file-input">
+                                </label>
+                                <button class="button-primary" onclick="uploadFile()">Upload Dataset</button>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="numTextClasses">Number of Classes:</label>
+                                <input type="number" id="numTextClasses" min="1" value="2">
+                                <button class="button-secondary" onclick="generateTextClassInputs()">Set
+                                    Classes</button>
+                            </div>
+
+                            <div id="textClassInputs" class="class-inputs"></div>
+
+                            <div class="preview-section">
+                                <h4>Dataset Preview</h4>
+                                <div id="dataset-content" class="code-preview"></div>
+                                <div id="uploadResponse" class="response-message"></div>
+                            </div>
+
+                            <div class="training-section">
+                                <button class="button-primary gradient-button" onclick="startTextTraining()">
+                                    Start Training
+                                </button>
+                                <div class="progress-container">
+                                    <div id="progress-bar-container">
+                                        <div id="progress-bar"></div>
+                                    </div>
+                                    <span id="progress-label">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content-nested" id="text-few-shot-section">
+
+                            <div class="upload-section">
+                                <label for="fewShotFileInput" class="upload-label">
+                                    <span class="upload-icon">📤</span>
+                                    <span>Upload Few-Shot Data (JSON)</span>
+                                    <input type="file" id="fewShotFileInput" accept=".json,.txt" class="file-input">
+                                </label>
+                                                            <button class="button-primary" onclick="uploadFewShotFile()">Upload Few-Shot
+                                    Dataset</button>
+                            <div id="fewShotUploadResponse" class="response-message"></div>
+                            <div id="fewShotExamples" class="example-preview" style="display: none;">
+                                <h4>Loaded Examples:</h4>
+                                <div id="fewShotExamplesList" class="examples-list"></div>
+                            </div>
+                            </div>
+
+                            <!-- <h4>Provide Few-Shot Examples</h4>
+                            <div id="text-few-shot-examples" class="example-preview"></div>
+                            <div class="input-group">
+                                <label for="text-few-shot-input">Example Text</label>
+                                <textarea id="text-few-shot-input" rows="3" placeholder="Enter example text"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label for="text-few-shot-class">Class</label>
+                                <input type="text" id="text-few-shot-class" placeholder="Enter class name" />
+                            </div>
+                            <button class="button-secondary" onclick="addTextExample()">Add Example</button>
+                            <hr> -->
+                            <!-- <h4>Classify New Text</h4>
+                            <div class="input-group">
+                                <label for="text-classify-input">Text to Classify</label>
+                                <textarea id="text-classify-input" rows="3" placeholder="Enter text to classify"></textarea>
+                            </div>
+                            <button class="button-primary gradient-button" onclick="classifyTextFewShot()">Classify</button>
+                            <div id="text-few-shot-result" class="result-box"></div> -->
+
+                            <div class="input-group">
+                                <label for="taskDescription">Describe Your Task</label>
+                                <textarea id="taskDescription" rows="3" placeholder="e.g., Classify emails as Urgent, Casual, or Promotional."></textarea>
+                            </div>
+
+                            <button class="button-primary" onclick="submitTaskPrompt()">Submit Task</button>
+                            <div id="taskPromptResponse" class="response-message"></div>
+                            <hr>
+                            
+                            <h4>Test Few-Shot Classification</h4>
+                            <button class="button-secondary" onclick="testAPI()">🔧 Test API Connection</button>
+                            <div id="api-test-result" class="response-message" style="margin: 10px 0;"></div>
+                            <div class="input-group">
+                                <label for="text-classify-input">Text to Classify</label>
+                                <textarea id="text-classify-input" rows="3" placeholder="Enter text to classify using few-shot examples"></textarea>
+                            </div>
+                            <button class="button-primary gradient-button" onclick="classifyTextFewShot()">Classify Text</button>
+                            <div id="text-few-shot-result" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Test Your Model</h3>
+                        <p>Try out your trained classifier</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="input-group">
+                            <label for="userInput">Enter text to classify</label>
+                            <textarea id="userInput" rows="4" placeholder="Type your text here..."></textarea>
+                            <button class="button-primary gradient-button" onclick="runInference()">Classify
+                                Text</button>
+                        </div>
+                        <div id="inferenceResult" class="result-box"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Classification -->
+            <div class="tab-content" id="image-section">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="tabs-nested">
+                            <button class="tab-button-nested active" data-tab="image-training">Training</button>
+                            <button class="tab-button-nested" data-tab="image-few-shot">Few-Shot Learning</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <!-- Training Subsection -->
+                        <div class="tab-content-nested active" id="image-training-section">
+                            <div class="image-input-tabs">
+                                <button class="image-tab-button active" data-image-tab="upload">Upload Images</button>
+                                <button class="image-tab-button" data-image-tab="capture">Real-time Capture</button>
+                            </div>
+
+                            <!-- Upload Images -->
+                            <div class="image-tab-content active" id="upload-section">
+                                <div class="input-group">
+                                    <label for="numImageClasses">Number of Classes:</label>
+                                    <input type="number" id="numImageClasses" min="1" placeholder="Enter number of classes" />
+                                    <button class="button-secondary" onclick="generateImageClassDropzones()">Set Classes</button>
+                                </div>
+                                <div id="multiClassDropzones" class="multi-dropzone-grid"></div>
+                            </div>
+
+                            <!-- Real-time Capture -->
+                            <div class="image-tab-content" id="capture-section">
+                                <div class="webcam-section">
+                                    <div class="webcam-container">
+                                        <div id="webcam-training-overlay" class="webcam-overlay visible active"></div>  <!-- Always show active box -->
+                                        <video id="webcam-training" class="webcam-video" autoplay playsinline></video>
+                                        <canvas id="canvas-training" class="webcam-canvas"></canvas>
+                                    </div>
+                                    <div class="webcam-controls">
+                                        <button class="button-primary webcam-activate-btn" onclick="activateWebcam()">🎥 Activate Webcam</button>
+                                    </div>
+                                </div>
+                                <div class="webcam-controls">
+                                    <div class="input-group">
+                                        <label for="numClasses">Number of Classes:</label>
+                                        <input type="number" id="numClasses" min="1" value="2">
+                                        <button class="button-secondary" onclick="generateClassCaptureControls()">Set Classes</button>
+                                    </div>
+                                    <div id="classCaptureSection" class="class-inputs"></div>
+                                </div>
+                            </div>
+
+                            <!-- Train Button & Progress -->
+                            <div class="training-section">
+                                <button class="button-primary gradient-button" onclick="startImageTraining()">Train Image Model</button>
+                                <div class="progress-container">
+                                    <div id="image-progress-bar-container"><div id="image-progress-bar"></div></div>
+                                    <span id="image-progress-label">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Few-Shot Subsection -->
+                        <div class="tab-content-nested" id="image-few-shot-section">
+                            <div class="image-input-tabs">
+                                <button class="image-tab-button active" data-image-tab="few-shot-upload">Upload Examples</button>
+                                <button class="image-tab-button" data-image-tab="few-shot-capture">Real-time Examples</button>
+                            </div>
+
+                            <!-- Upload Examples -->
+                            <div class="image-tab-content active" id="few-shot-upload-section">
+                                <div class="upload-section">
+                                    <label for="imageFewShotFileInput" class="upload-label">
+                                        <span class="upload-icon">📤</span>
+                                        <span>Upload Few-Shot Image Data (JSON)</span>
+                                        <input type="file" id="imageFewShotFileInput" accept=".json,.txt" class="file-input">
+                                    </label>
+                                    <button class="button-primary" onclick="uploadImageFewShotFile()">Upload Dataset</button>
+                                    <div id="imageFewShotUploadResponse" class="response-message"></div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="imageTaskDescription">Describe Your Task</label>
+                                    <textarea id="imageTaskDescription" rows="3" placeholder="e.g., Classify objects..."></textarea>
+                                </div>
+                                <button class="button-primary" onclick="submitImageTaskPrompt()">Submit Task</button>
+                                <div id="imageTaskPromptResponse" class="response-message"></div>
+                                <hr>
+                                <h4>Classify New Image</h4>
+                                <div class="upload-zone">
+                                    <div class="dropzone" id="image-classify-dropzone">
+                                        <div class="dropzone-content"><span class="upload-icon">📁</span><p>Drag & drop image</p><input type="file" id="imageClassifyInput" accept="image/*" class="file-input"></div>
+                                    </div>
+                                </div>
+                                <button class="button-primary gradient-button" onclick="classifyImageFewShot()">Classify</button>
+                                <div id="image-few-shot-result" class="result-box"></div>
+                            </div>
+
+                            <!-- Real-time Examples -->
+                            <div class="image-tab-content" id="few-shot-capture-section">
+                                <div class="webcam-section">
+                                    <div class="webcam-container">
+                                        <div id="webcam-few-shot-overlay" class="webcam-overlay visible active"></div>  <!-- Always show active box -->
+                                        <video id="webcam-few-shot" class="webcam-video" autoplay playsinline></video>
+                                        <canvas id="canvas-few-shot" class="webcam-canvas"></canvas>
+                                    </div>
+                                    <div class="webcam-controls">
+                                        <button class="button-primary webcam-activate-btn" onclick="activateFewShotWebcam()">🎥 Activate Webcam</button>
+                                    </div>
+                                </div>
+                                <div class="webcam-controls">
+                                    <div class="input-group">
+                                        <label for="imageTaskDescriptionCapture">Describe Your Task</label>
+                                        <textarea id="imageTaskDescriptionCapture" rows="3"></textarea>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="numFewShotClasses">Number of Classes:</label>
+                                        <input type="number" id="numFewShotClasses" min="1" value="2">
+                                        <button class="button-secondary" onclick="generateFewShotCaptureControls()">Set Classes</button>
+                                    </div>
+                                    <div id="fewShotCaptureSection" class="class-inputs"></div>
+                                    <button class="button-primary gradient-button" onclick="captureFewShotClassify()">Capture & Classify</button>
+                                </div>
+                                <div id="image-few-shot-capture-result" class="result-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test Section -->
+                <div class="card">
+                    <div class="card-header"><h3>Test Image Classification</h3><p>Try your model.</p></div>
+                    <div class="card-content">
+                        <div class="webcam-section">
+                            <div class="webcam-container">
+                                <div id="webcam-test-overlay" class="webcam-overlay"></div>
+                                <video id="webcam-test" class="webcam-video" autoplay playsinline></video>
+                                <canvas id="canvas-test" class="webcam-canvas"></canvas>
+                            </div>
+                            <div class="webcam-controls">
+                                <button class="button-primary webcam-activate-btn" onclick="activateTestWebcam()">🎥 Activate Webcam</button>
+                            </div>
+                        </div>
+                        <div class="webcam-controls">
+                            <button class="button-primary gradient-button" onclick="captureAndClassify()">Capture & Classify</button>
+                            <button class="button-secondary" onclick="toggleLiveClassification()">Toggle Live Classification</button>
+                        </div>
+                        <div id="imageInferenceResult" class="result-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container"><p>Powered by Llama & Meta AI</p></div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

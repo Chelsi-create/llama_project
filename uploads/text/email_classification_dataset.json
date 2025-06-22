@@ -1,0 +1,182 @@
+[
+  {
+    "persona": "Product Manager",
+    "text": "Project launch deadline moved up to Friday - please confirm delivery timeline.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Refund request processed successfully.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Student",
+    "text": "Tips for managing exam stress.",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Student",
+    "text": "Group project meeting scheduled for Saturday.",
+    "label": "Important"
+  },
+  {
+    "persona": "Student",
+    "text": "Win an iPhone by completing a survey!",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Top 5 trending products this month.",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "How to become a morning person: Free ebook inside.",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Critical bug reported in production - immediate attention needed.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Refer friends and earn $10 credits.",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Unlock VIP access to new deals!",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Team feedback on your product proposal.",
+    "label": "Important"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Lunch & Learn session signup",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Order confirmation: Your receipt for Order #9842",
+    "label": "Important"
+  },
+  {
+    "persona": "Student",
+    "text": "Professor's feedback on your recent essay.",
+    "label": "Important"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Your package is out for delivery today.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Weekly company newsletter.",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Monthly analytics dashboard ready for review.",
+    "label": "Important"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Top 10 growth hacks you should know!",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Reminder: Sprint Planning meeting at 10 AM tomorrow.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Buy 1 Get 1 Free - Limited Time Offer!",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Student",
+    "text": "Try premium Spotify free for 3 months.",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Back in stock: Items you viewed last week.",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Flash sale: 90% off on select items!",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "New review request for recent purchase.",
+    "label": "Important"
+  },
+  {
+    "persona": "Student",
+    "text": "Midterm schedule updated - check your dashboard.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Suggested items based on your browsing history.",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "Tech Talk this Thursday on Kubernetes.",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Student",
+    "text": "Your course registration is incomplete.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Product Manager",
+    "text": "JIRA ticket #1234 assigned to you.",
+    "label": "Important"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Your return has been approved.",
+    "label": "Important"
+  },
+  {
+    "persona": "Student",
+    "text": "Assignment 4 is due tonight at midnight.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Student",
+    "text": "TA office hours updated for this week.",
+    "label": "Important"
+  },
+  {
+    "persona": "Student",
+    "text": "Clubs and societies fair this weekend!",
+    "label": "Low Priority"
+  },
+  {
+    "persona": "Student",
+    "text": "Student discount: 70% off new shoes.",
+    "label": "Ignore"
+  },
+  {
+    "persona": "Online Shopper",
+    "text": "Delivery issue: address not found.",
+    "label": "Urgent"
+  },
+  {
+    "persona": "Student",
+    "text": "University newsletter: April edition.",
+    "label": "Low Priority"
+  }
+]
